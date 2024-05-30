@@ -1,0 +1,14 @@
+INSERT INTO Diario_de_Borda (id_viagem, data_viagem, inicio, motorista, deposito, fabrica, cavalo, carreta) 
+VALUES (?,?, ?, ?, ?, ?, ?, ?);
+
+
+INSERT INTO Parada_Ida (id_viagem, tipo, inicio, fim) 
+VALUES (?, ?, ?, ?);
+
+
+INSERT INTO Parada_Volta (viagem, tipo, inicio, fim) 
+VALUES (?, ?, ?, ?);
+
+
+INSERT INTO Chegada_Destino (id_viagem, refeicao_tipo, refeicao_inicio, refeicao_fim, tempo_espera_tipo, tempo_espera_inicio, tempo_espera_fim, retorno, hora) 
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);

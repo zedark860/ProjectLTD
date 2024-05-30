@@ -1,0 +1,44 @@
+CREATE TABLE Chegada_Destino (
+    id_viagem INT PRIMARY KEY,
+    refeicao_tipo VARCHAR(255),
+    refeicao_inicio TIME,
+    refeicao_fim TIME,
+    tempo_espera_tipo VARCHAR(255),
+    tempo_espera_inicio TIME,
+    tempo_espera_fim TIME,
+    retorno DATE,
+    hora TIME,
+);
+
+CREATE TABLE Diario_de_Borda (
+    id_diario INT PRIMARY KEY AUTO_INCREMENT,
+    id_viagem INT,
+    data_viagem DATE,
+    inicio TIME,
+    motorista VARCHAR(255),
+    deposito VARCHAR(255),
+    fabrica VARCHAR(255),
+    cavalo VARCHAR(255),
+    carreta VARCHAR(255),
+    FOREIGN KEY (id_viagem) REFERENCES Chegada_Destino(id_viagem) ON UPDATE CASCADE
+);
+
+CREATE TABLE Parada_Ida (
+    id_parada_ida INT PRIMARY KEY AUTO_INCREMENT,
+    id_viagem INT,
+    tipo VARCHAR(255),
+    inicio TIME,
+    fim TIME,
+    FOREIGN KEY (id_viagem) REFERENCES Chegada_Destino(id_viagem) ON UPDATE CASCADE
+);
+
+
+
+CREATE TABLE Parada_Volta (
+    id_parada_volta INT PRIMARY KEY AUTO_INCREMENT,
+    id_viagem INT,
+    tipo VARCHAR(255),
+    inicio TIME,
+    fim TIME,
+    FOREIGN KEY (id_viagem) REFERENCES Chegada_Destino(id_viagem) ON UPDATE CASCADE
+);
